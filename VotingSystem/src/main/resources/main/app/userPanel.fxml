@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1400.0"
+            prefWidth="1600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="main.app.UserPanelController">
+
+    <AnchorPane prefHeight="900.0" prefWidth="1400.0" BorderPane.alignment="CENTER">
+
+
+        <!--        <Label layoutX="80.0" layoutY="40.0" prefHeight="36.0"  style="-fx-text-fill: #A9A9A9;">-->
+        <!--            <font>-->
+        <!--                <Font name="SansSerif Regular" size="14.0"/>-->
+        <!--            </font>-->
+        <!--        </Label>-->
+        <Button fx:id="cancelButton" onAction="#onCancelButtonClick" layoutX="502.0" layoutY="13.0"
+                mnemonicParsing="false"
+                style="-fx-background-color: transparent; -fx-text-fill: #A9A9A9; -fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;"
+                text="Cancel">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <!--chose vote-->
+        <children>
+            <Label layoutX="80.0" layoutY="60.0" prefHeight="30.0" style="-fx-text-fill: #A9A9A9;"
+                   text="Выберите голосование">
+                <font>
+                    <Font name="SansSerif Regular" size="18.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="electionsListView" layoutX="80.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0"/>
+            <Button fx:id="getCandidatesVotesButton" onAction="#getCandidatesVotesButtonClick" layoutX="80.0" layoutY="220.0"
+                    mnemonicParsing="false"
+                    prefWidth="200.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <children>
+            <!--end chose vote-->
+            <!--chose candidate-->
+            <Label layoutX="80.0" layoutY="240.0" prefHeight="30.0" style="-fx-text-fill: #A9A9A9;"
+                   text="Выберите своего кандидата">
+                <font>
+                    <Font name="SansSerif Regular" size="18.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="candidatesListView" layoutX="80.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0"/>
+            <Button fx:id="getCandidatesButton" onAction="#getCandidatesButtonClick" layoutX="80.0" layoutY="500.0"
+                    mnemonicParsing="false" prefWidth="181.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список кандидатов">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <!--end chose candidate-->
+        <!--add vote for candidate-->
+        <Label fx:id="addVoiceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0"
+               layoutY="540.0" prefHeight="16.0" prefWidth="300.0" textFill="RED">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Label>
+        <Button fx:id="addVoiceButton" onAction="#addVoiceButtonClick" layoutX="80.0" layoutY="560.0"
+                mnemonicParsing="false" prefHeight="50.0"
+                prefWidth="200.0"
+                style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                text="проголосовать">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+        <!--add vote for candidate-->
+        <!--chose question vote-->
+        <children>
+            <Label layoutX="380.0" layoutY="60.0" prefHeight="30.0" style="-fx-text-fill: #A9A9A9;"
+                   text="Выберите голосование">
+                <font>
+                    <Font name="SansSerif Regular" size="18.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="questionVoteListView" layoutX="380.0" layoutY="100.0" prefHeight="100.0"
+                      prefWidth="200.0"/>
+            <Button fx:id="getQuestionsVotesButton" onAction="#getQuestionsVotesButtonClick" layoutX="380.0" layoutY="220.0"
+                    mnemonicParsing="false"
+                    prefWidth="200.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <children>
+            <!--end question chose vote-->
+            <!--chose question-->
+            <Label layoutX="380.0" layoutY="240.0" prefHeight="30.0" style="-fx-text-fill: #A9A9A9;"
+                   text="Выберите вопрос">
+                <font>
+                    <Font name="SansSerif Regular" size="18.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="questionsListView" layoutX="380.0" layoutY="300.0" prefHeight="160.0" prefWidth="200.0"/>
+            <Button fx:id="getQuestionsButton" onAction="#getQuestionButtonClick" layoutX="400.0" layoutY="500.0"
+                    mnemonicParsing="false" prefHeight="40.0" prefWidth="181.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список вопросов">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <children>
+            <RadioButton fx:id="answerButton1" layoutX="380.0" layoutY="580.0" mnemonicParsing="false"
+                         text="да">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <toggleGroup>
+                    <ToggleGroup fx:id="answers"/>
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="answerButton2" layoutX="450.0" layoutY="580.0" mnemonicParsing="false"
+                         text="нет" toggleGroup="$answers">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </RadioButton>
+            <Label fx:id="answerLabel" layoutX="380" layoutY="560.0" prefHeight="17.0" prefWidth="488.0"
+                   text="Ваш ответ:">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+
+        </children>
+        <!--end chose question-->
+        <!--add vote for question-->
+        <Label fx:id="addYNLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="380.0"
+               layoutY="600.0" prefHeight="16.0" prefWidth="300.0" textFill="RED">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Label>
+
+        <Button fx:id="addYNButton" onAction="#addYNButtonClick" layoutX="380.0" layoutY="700.0"
+                mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="200.0"
+                style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                text="проголосовать">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+        <!--add vote for quetion-->
+
+
+    </AnchorPane>
+</BorderPane>

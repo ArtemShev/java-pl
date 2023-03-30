@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+            prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="main.app.ApplicationController">
+    <AnchorPane prefHeight="700.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+
+        <!-- The Beginning of Logo -->
+        <!-- The End of Logo -->
+
+        <!-- The Beginning of Login form -->
+        <Label layoutX="244.0" layoutY="60.0" prefHeight="30.0" prefWidth="90.0" style="-fx-text-fill: #A9A9A9;"
+               text="Login">
+            <font>
+                <Font name="SansSerif Regular" size="30.0"/>
+            </font>
+        </Label>
+        <Button fx:id="cancelButton" layoutX="502.0" layoutY="13.0" mnemonicParsing="false"
+                onAction="#onCancelButtonClick"
+                style="-fx-background-color: transparent; -fx-text-fill: #A9A9A9; -fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;"
+                text="Cancel">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <TextField fx:id="loginUsernameTextField" layoutX="150.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0"
+                   promptText="Username / Email"
+                   style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+        </TextField>
+        <PasswordField fx:id="loginPasswordPasswordField" layoutX="150.0" layoutY="140.0" prefHeight="30.0"
+                       prefWidth="300.0" promptText="Password"
+                       style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+        </PasswordField>
+        <Label fx:id="invalidLoginCredentials" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0"
+               layoutY="175.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Label>
+        <Button fx:id="LoginButton" layoutX="335.0" layoutY="195.0" mnemonicParsing="false"
+                onAction="#onLoginButtonClick"
+                style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                text="Login">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <!-- End of Login Form -->
+
+        <!-- A simple line Separator -->
+        <Line endX="500.0" endY="380.0" fill="DARKGRAY" layoutY="-110.0" opacity="0.5" startX="100.0" startY="380.0"
+              stroke="#a8a8a8ad" strokeLineJoin="BEVEL" strokeWidth="3.0"/>
+
+
+        <!-- The Beginning of Signup form -->
+        <Label layoutX="230.0" layoutY="275.0" prefHeight="36.0" prefWidth="130.0" style="-fx-text-fill: #A9A9A9;"
+               text="Sign Up">
+            <font>
+                <Font name="SansSerif Regular" size="30.0"/>
+            </font>
+        </Label>
+
+        <TextField fx:id="signUpNameTextField" layoutX="155.0" layoutY="320.0" prefHeight="30.0" prefWidth="300.0"
+                   promptText="Иванов Иван Иванович"
+                   style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+        </TextField>
+        <TextField fx:id="signUpLoginTextField" layoutX="155.0" layoutY="360.0" prefHeight="30.0" prefWidth="300.0"
+                   promptText="Иван228" style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+        </TextField>
+        <TextField fx:id="signUpEmailTextField" layoutX="155.0" layoutY="400.0" prefHeight="30.0" prefWidth="300.0"
+                   promptText="mail@mail.com"
+                   style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+        </TextField>
+        <TextField fx:id="signUpBirthdayTextField" layoutX="155.0" layoutY="440.0" prefHeight="30.0" prefWidth="300.0"
+                   promptText="YYYY-MM-DD"
+                   style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+        </TextField>
+        <PasswordField fx:id="signUpPasswordPasswordField" layoutX="155.0" layoutY="480.0" prefHeight="30.0"
+                       prefWidth="300.0" promptText="Password"
+                       style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+        </PasswordField>
+        <PasswordField fx:id="signUpRepeatPasswordPasswordField" layoutX="155.0" layoutY="520.0" prefHeight="30.0"
+                       prefWidth="300.0" promptText="Repeat Password"
+                       style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+        </PasswordField>
+        <children>
+            <RadioButton fx:id="citizenshipButton1" layoutX="155.0" layoutY="600.0" mnemonicParsing="false"
+                         text="да">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <toggleGroup>
+                    <ToggleGroup fx:id="citizenships"/>
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="citizenshipButton2" layoutX="200.0" layoutY="600.0" mnemonicParsing="false"
+                         text="нет" toggleGroup="$citizenships">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </RadioButton>
+            <Label fx:id="myLabel" alignment="CENTER" layoutX="72" layoutY="560.0" prefHeight="17.0" prefWidth="488.0"
+                   text="У вас есть Российское гражданство?">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+
+        </children>
+        <Label fx:id="invalidSignupCredentials" layoutX="230.0" layoutY="640.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Label>
+        <Button fx:id="signUpButton" layoutX="230.0" layoutY="680.0" mnemonicParsing="false"
+                onAction="#onSignUpButtonClick" prefHeight="33.0" prefWidth="130.0"
+                style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                text="Sign-Up">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <!-- The End of Signup form -->
+
+    </AnchorPane>
+</BorderPane>

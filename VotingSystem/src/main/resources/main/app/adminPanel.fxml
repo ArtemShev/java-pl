@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="1000.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="main.app.AdminPanelController">
+    <AnchorPane prefHeight="1000.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+        <Button fx:id="cancelButton" layoutX="850.0" layoutY="13.0" mnemonicParsing="false"
+                onAction="#onCancelButtonClick"
+                style="-fx-background-color: transparent; -fx-text-fill: #A9A9A9; -fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;"
+                text="Cancel">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <Label prefHeight="36.0" layoutX="80.0" layoutY="40.0" style="-fx-text-fill: #A9A9A9;"
+               text="Добавить голосование">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="voteTitleTextField" layoutX="80.0" layoutY="80.0" prefHeight="30.0" prefWidth="160.0"
+                   promptText="Title" style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+        </TextField>
+        <TextField fx:id="voteDateTextField" layoutX="80.0" layoutY="128.0" prefHeight="30.0" prefWidth="160.0"
+                   promptText="Add data like YYYY-MM-DD"
+                   style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+            <font>
+                <Font name="SansSerif Regular" size="14.0"/>
+            </font>
+        </TextField>
+
+        <children>
+            <RadioButton fx:id="questionableButton1" layoutX="80.0" layoutY="200.0" mnemonicParsing="false"
+                         text="да">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <toggleGroup>
+                    <ToggleGroup fx:id="questionable"/>
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="questionableButton2" layoutX="136.0" layoutY="200.0" mnemonicParsing="false"
+                         text="нет" toggleGroup="$questionable">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </RadioButton>
+            <Label fx:id="myLabel" layoutX="80" layoutY="176.0" prefHeight="17.0"
+                   text="Есть ли в голосовании вопросы?">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+        </children>
+        <Label fx:id="invalidVoteCredentials" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="224.0"
+               prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Label>
+        <Button fx:id="addVoteButton" layoutX="80.0" layoutY="256.0" mnemonicParsing="false"
+                onAction="#AddVoteButtonClick"
+                style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                text="Добавить голосование">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+
+
+        <Line endX="1000.0" endY="300.0" fill="DARKGRAY" layoutY="0" opacity="0.5" startX="80.0" startY="300.0"
+              stroke="#a8a8a8ad" strokeWidth="3.0"/>
+        <Line endX="400.0" endY="300.0" fill="DARKGRAY" layoutY="0" opacity="0.5" startX="400.0" startY="40.0"
+              stroke="#a8a8a8ad" strokeWidth="3.0"/>
+        <!-- End of add vote -->
+        <!--get result-->
+        <children>
+            <Label prefHeight="36.0" style="-fx-text-fill: #A9A9A9;" layoutX="460.0" layoutY="40.0"
+                   text="Показать результаты">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="resultsListView" layoutX="460.0" layoutY="80.0" prefHeight="160.0" prefWidth="200.0"/>
+            <Button fx:id="getResultsButton" layoutX="460.0" layoutY="256.0" mnemonicParsing="false"
+                    onAction="#getResultButtonClick" prefHeight="30.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список резульатов">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <!--End get result-->
+        <!--select vote-->
+        <children>
+            <Label prefHeight="36.0" prefWidth="1000.0" style="-fx-text-fill: #A9A9A9;" layoutX="80.0" layoutY="300.0"
+                   text="Выберете выборы для добавления кандидата">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="electionsListView" layoutX="80.0" layoutY="340.0" prefHeight="160.0" prefWidth="240.0"/>
+            <!--            <Label fx:id="candidate" alignment="CENTER" layoutY="33.0" prefHeight="43.0" prefWidth="459.0" text="Select a food">-->
+            <!--                <font>-->
+            <!--                    <Font size="29.0" />-->
+            <!--                </font>-->
+            <!--            </Label>-->
+            <Button fx:id="getVotingButton" layoutX="80" layoutY="520.0" mnemonicParsing="false"
+                    onAction="#getVotingButtonClick" prefHeight="40.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список выборов с кандидатами">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <!--end select vote-->
+
+        <!-- The Beginning of addCandidate form -->
+
+
+        <children>
+            <Label prefHeight="36.0" prefWidth="1000.0" style="-fx-text-fill: #A9A9A9;" layoutX="460.0" layoutY="300.0"
+                   text="Добавьте кандидата в выбранное голосование">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="candidateTextField" layoutX="460.0" layoutY="340" prefHeight="30.0" prefWidth="240.0"
+                       promptText="ФИО кандидата"
+                       style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+                <cursor>
+                    <Cursor fx:constant="TEXT"/>
+                </cursor>
+            </TextField>
+            <TextField fx:id="candidateJobTextField" layoutX="460.0" layoutY="380" prefHeight="30.0" prefWidth="240.0"
+                       promptText="Работа кандидата"
+                       style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+                <cursor>
+                    <Cursor fx:constant="TEXT"/>
+                </cursor>
+            </TextField>
+            <Button fx:id="addCandidatesButton" layoutX="460" layoutY="520.0" mnemonicParsing="false"
+                    onAction="#addCandidatesButtonClick" prefHeight="40.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Добавить кандидата">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <!-- A simple line Separator -->
+        <Line endX="1000.0" endY="580.0" fill="DARKGRAY" layoutY="0" opacity="0.5" startX="80.0"
+              startY="580.0" stroke="#a8a8a8ad" strokeLineJoin="BEVEL" strokeWidth="3.0"/>
+
+        <!--select question vote-->
+        <children>
+            <Label prefHeight="36.0" prefWidth="1000.0" style="-fx-text-fill: #A9A9A9;" layoutX="80.0" layoutY="600.0"
+                   text="Выберете выборы для добавления вопроса">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+            </Label>
+            <ListView fx:id="questionableElectionsListView" layoutX="80.0" layoutY="640.0" prefHeight="160.0"
+                      prefWidth="240.0"/>
+            <Button fx:id="getQuestionableVotingButton" layoutX="80" layoutY="820.0" mnemonicParsing="false"
+                    onAction="#getQuestionableVotingButtonClick" prefHeight="40.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Обновить список выборов с вопросами">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <!--end select vote-->
+
+        <!-- The Beginning of addQuestion form -->
+
+
+        <children>
+            <Label prefHeight="36.0" prefWidth="1000.0" style="-fx-text-fill: #A9A9A9;" layoutX="460.0" layoutY="600.0"
+                   text="Добавьте вопрос в выбранное голосование">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="questionTextField" layoutX="460.0" layoutY="640" prefHeight="30.0" prefWidth="320.0"
+                       promptText="Вопрос"
+                       style="-fx-border-width: 2; -fx-border-color: #A9A9A9; -fx-border-radius: 5;">
+                <font>
+                    <Font name="SansSerif Regular" size="14.0"/>
+                </font>
+                <cursor>
+                    <Cursor fx:constant="TEXT"/>
+                </cursor>
+            </TextField>
+            <Button fx:id="addQuestionsButton" layoutX="460" layoutY="820.0" mnemonicParsing="false"
+                    onAction="#addQuestionsButtonClick" prefHeight="40.0"
+                    style="-fx-background-color: #24a0ed; -fx-text-fill: white; -fx-border-radius: 5; -fx-border-width: 2; -fx-border-color: #24a0ed;"
+                    text="Добавить вопрос">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </children>
+        <!-- A simple line Separator -->
+        <!--        <Line endX="1000.0" endY="616.0" fill="DARKGRAY" layoutY="0" opacity="0.5" startX="80.0"-->
+        <!--              startY="616.0" stroke="#a8a8a8ad" strokeLineJoin="BEVEL" strokeWidth="3.0"/>-->
+    </AnchorPane>
+</BorderPane>
